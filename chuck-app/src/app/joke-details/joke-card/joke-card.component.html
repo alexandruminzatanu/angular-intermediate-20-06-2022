@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>CHuck joke</mat-card-title>
+      <mat-card-subtitle>Joke about CHuck</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://images02.military.com/sites/default/files/styles/full/public/media/veteran-jobs/content-images/2016/03/chucknorris.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+       {{ jokeText }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="likeClicked()">LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
