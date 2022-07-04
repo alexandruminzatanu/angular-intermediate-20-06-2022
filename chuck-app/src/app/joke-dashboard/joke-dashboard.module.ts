@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { JokeDashboardRoutingModule } from './joke-dashboard-routing.module';
 import { JokeListComponent } from './joke-list/joke-list.component';
+import { JokeFormComponent } from './joke-form/joke-form.component';
 
 
 @NgModule({
   declarations: [
-    JokeListComponent
+    JokeListComponent,
+    JokeFormComponent
   ],
   imports: [
     CommonModule,

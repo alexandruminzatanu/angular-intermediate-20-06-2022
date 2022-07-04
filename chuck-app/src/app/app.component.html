@@ -1,16 +1,20 @@
-
+<!--
 {{ likeCount }}
 
 = 0 => "no comments"
 = 1 => "comment"
-> 1 => 
+> 1 =>
 <p *ngFor="let comm of comments">
   {{ comm }}
 </p>
 
 
-<button mat-button (click)="showCard()">Show card</button>
+<button mat-button (click)="showCard()">Show card</button> -->
 
-<app-joke-card *ngIf="displayCard" [jokeText]="title" (buttonClicked)="buttonClicked($event)"></app-joke-card>
-
+<!-- <app-joke-card *ngIf="displayCard" [jokeText]="title" (buttonClicked)="buttonClicked($event)"></app-joke-card> -->
+<a routerLink="/joke-card">JOKE CARD</a> <br>
+<a routerLink="/about">ABOUT</a><br>
+<a routerLink="/dashboard">DASHBOARD</a><br>
+<a routerLink="/random">RANDOM</a><br>
+<a [routerLink]="['/dashboard/form',123]">FORM</a><br>
 <router-outlet></router-outlet>
