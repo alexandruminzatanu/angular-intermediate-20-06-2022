@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JokeListComponent } from './joke-dashboard/joke-list/joke-list.component';
+import { DuplicateDirective } from './duplicate.directive';
 
 @NgModule({
-  declarations: [AppComponent, JokeListComponent],
+  declarations: [AppComponent, JokeListComponent, DuplicateDirective],
   imports: [BrowserModule, AppRoutingModule, JokeDetailsModule],
   providers: [],
   bootstrap: [AppComponent],

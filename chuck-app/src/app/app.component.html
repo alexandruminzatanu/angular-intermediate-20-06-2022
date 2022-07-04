@@ -1,12 +1,18 @@
 
-{{ likeCount }}
+<ng-container *appDuplicate="false">
+  {{ likeCount }}
+</ng-container>
 
-= 0 => "no comments"
-= 1 => "comment"
-> 1 => 
-<p *ngFor="let comm of comments">
-  {{ comm }}
-</p>
+
+<ng-container [ngSwitch]="likeCount">
+  <p *ngSwitchCase="0"> No meesage </p>
+  <p *ngSwitchCase="likeCount === 1"> Some random message</p>
+  <ng-container *ngSwitchDefault>
+    <p  *ngFor="let comm of comments">
+      {{ comm }}
+    </p>
+  </ng-container>
+</ng-container>
 
 
 <button mat-button (click)="showCard()">Show card</button>
