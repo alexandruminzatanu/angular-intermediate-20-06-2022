@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +14,8 @@ import { JokeFormComponent } from './joke-form/joke-form.component';
   ],
   imports: [
     CommonModule,
-    JokeDashboardRoutingModule
+    JokeDashboardRoutingModule,
+    FormsModule
   ]
 })
 export class JokeDashboardModule { }

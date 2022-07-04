@@ -1,1 +1,37 @@
 <p>joke-form : {{ id }}</p>
+
+<p>
+    {{ comment }}
+</p>
+
+<input [ngModel]="comment" (ngModelChange)="onCommentChange($event)">
+
+<form #newJokeForm="ngForm" (ngSubmit)="onSubmit(newJokeForm)">
+    <input
+      type="text"
+      placeholder="Joke"
+      required
+      minlength="4"
+      [(ngModel)]="joke"
+      name="joke"
+      #writtenJoke="ngModel"
+    />
+    <div *ngIf="!writtenJoke.valid && writtenJoke.touched">Joke is required!</div>
+    <div *ngIf="writtenJoke.errors && writtenJoke.errors['minlength']">
+      Joke be at least 4 characters long.
+    </div>
+  
+    <input
+      type="text"
+      placeholder="Author"
+      required
+      [(ngModel)]="author"
+      name="author"
+      #jokeAuthor="ngModel"
+    />
+    <div *ngIf="!jokeAuthor.valid && jokeAuthor.touched">Author is required!</div>
+  
+    <button type="submit" [disabled]="!newJokeForm.form.valid">Register</button>
+    <button type="button" (click)="newJokeForm.reset()">Reset</button>
+  </form>
+  
