@@ -35,3 +35,27 @@
     <button type="button" (click)="newJokeForm.reset()">Reset</button>
   </form>
   
+<br/> <br/>
+  <form [formGroup]="reactiveForm">
+    <input 
+    type="text"
+    placeholder="Joke"
+    formControlName="joke"
+    />
+    <div *ngIf="!reactiveForm.controls['joke'].valid && reactiveForm.controls['joke'].touched">Joke is required!</div>
+    <div *ngIf="reactiveForm.controls['joke'].errors && reactiveForm.controls['joke'].errors['minlength']">
+      Joke be at least 4 characters long.
+    </div>
+
+
+    <input 
+    type="text"
+    placeholder="Author"
+    formControlName="author"
+    />
+    <div *ngIf="reactiveForm.controls['author'].errors && reactiveForm.controls['author'].errors['badValue']">
+      {{ reactiveForm.controls['author'].errors['badValue'] }}
+    </div>
+    
+    <button (click)="reactiveSubmit()">Register</button>
+  </form>
