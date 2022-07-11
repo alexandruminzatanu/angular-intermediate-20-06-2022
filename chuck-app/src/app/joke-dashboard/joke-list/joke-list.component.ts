@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JokeService } from '../joke-form/joke.service';
 
 @Component({
   selector: 'app-joke-list',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class JokeListComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public jokeService: JokeService) { }
 
   ngOnInit(): void {
   }

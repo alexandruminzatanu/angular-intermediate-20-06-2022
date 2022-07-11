@@ -20,7 +20,7 @@
     <div *ngIf="writtenJoke.errors && writtenJoke.errors['minlength']">
       Joke be at least 4 characters long.
     </div>
-  
+
     <input
       type="text"
       placeholder="Author"
@@ -30,14 +30,14 @@
       #jokeAuthor="ngModel"
     />
     <div *ngIf="!jokeAuthor.valid && jokeAuthor.touched">Author is required!</div>
-  
+
     <button type="submit" [disabled]="!newJokeForm.form.valid">Register</button>
     <button type="button" (click)="newJokeForm.reset()">Reset</button>
   </form>
-  
+
 <br/> <br/>
   <form [formGroup]="reactiveForm">
-    <input 
+    <input
     type="text"
     placeholder="Joke"
     formControlName="joke"
@@ -48,7 +48,7 @@
     </div>
 
 
-    <input 
+    <input
     type="text"
     placeholder="Author"
     formControlName="author"
@@ -56,6 +56,14 @@
     <div *ngIf="reactiveForm.controls['author'].errors && reactiveForm.controls['author'].errors['badValue']">
       {{ reactiveForm.controls['author'].errors['badValue'] }}
     </div>
-    
+
     <button (click)="reactiveSubmit()">Register</button>
   </form>
+ <hr>
+ <h1> GET JOKE PART 1</h1>
+  <button (click)="getJokeFromService()"> GET JOKE</button><br>
+  <button (click)="jokeService.setJokeValueFromService()"> SET JOKE IN SERVICE</button>
+<br>
+<h5>{{ jokeValue }}</h5>
+<hr>
+<h4>JOKE FROM SERVICE: {{jokeService.jokeValueFromService}}</h4>

@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, Subscription } from 'rxjs';
+import { JokeService } from './joke.service';
 
 @Component({
   selector: 'app-joke-form',
@@ -13,7 +15,7 @@ export class JokeFormComponent implements OnInit, OnDestroy {
   subs$: Subscription = new Subscription();
 
   comment: string = 'test text';
-
+  jokeValue: string = '';
   joke: string = '';
   author: string = '';
 
@@ -22,7 +24,7 @@ export class JokeFormComponent implements OnInit, OnDestroy {
     author: new FormControl('', [this.customValidator('Chuck')]),
   });
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, public jokeService: JokeService) {}
 
   ngOnInit(): void {
     this.subs$.add(
@@ -69,5 +71,12 @@ export class JokeFormComponent implements OnInit, OnDestroy {
       const invalid = control.value === value;
       return invalid ? { badValue: 'Chuck cant jokes' } : null;
     };
+  }
+
+
+  getJokeFromService() {
+    this.jokeService.getJoke().subscribe((data: any)=>{
+      this.jokeValue = data.value;
+    })
   }
 }
